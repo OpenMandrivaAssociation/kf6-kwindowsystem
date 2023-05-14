@@ -28,6 +28,8 @@ BuildRequires: cmake(Qt6)
 BuildRequires: cmake(Qt6QuickTest)
 BuildRequires: pkgconfig(xcb-keysyms)
 BuildRequires: pkgconfig(xcb-icccm)
+BuildRequires: pkgconfig(xcb-xfixes)
+BuildRequires: pkgconfig(xfixes)
 Requires: %{libname} = %{EVRD}
 
 %description
