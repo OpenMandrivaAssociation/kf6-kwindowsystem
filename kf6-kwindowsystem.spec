@@ -1,6 +1,6 @@
 %define libname %mklibname KF6WindowSystem
 %define devname %mklibname KF6WindowSystem -d
-%define git 20230722
+%define git 20230726
 
 Name: kf6-kwindowsystem
 Version: 5.240.0
