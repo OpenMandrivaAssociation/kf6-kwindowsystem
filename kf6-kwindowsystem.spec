@@ -1,6 +1,6 @@
 %define libname %mklibname KF6WindowSystem
 %define devname %mklibname KF6WindowSystem -d
-%define git 20231013
+%define git 20231022
 
 Name: kf6-kwindowsystem
 Version: 5.240.0
@@ -31,6 +31,7 @@ BuildRequires: pkgconfig(xcb-icccm)
 BuildRequires: pkgconfig(xcb-xfixes)
 BuildRequires: pkgconfig(xfixes)
 Requires: %{libname} = %{EVRD}
+Requires: %{name}-backend = %{EVRD}
 
 %description
 Access to the windowing system
@@ -53,6 +54,24 @@ Development files (Headers etc.) for %{name}.
 
 Access to the windowing system
 
+%package backend-wayland
+Summary: Wayland backend for %{name}
+Group: System/Libraries
+Requires: %{libname} = %{EVRD}
+Provides: %{name}-backend = %{EVRD}
+
+%description backend-wayland
+Wayland backend for %{name}
+
+%package backend-x11
+Summary: X11 backend for %{name}
+Group: System/Libraries
+Requires: %{libname} = %{EVRD}
+Provides: %{name}-backend = %{EVRD}
+
+%description backend-x11
+X11 backend for %{name}
+
 %prep
 %autosetup -p1 -n kwindowsystem-%{?git:master}%{!?git:%{version}}
 %cmake \
@@ -73,8 +92,13 @@ Access to the windowing system
 %{_datadir}/qlogging-categories6/kwindowsystem.*
 %dir %{_qtdir}/plugins/kf6
 %dir %{_qtdir}/plugins/kf6/kwindowsystem
-%{_qtdir}/plugins/kf6/kwindowsystem/KF6WindowSystemX11Plugin.so
 %{_qtdir}/qml/org/kde/kwindowsystem
+
+%files backend-wayland
+%{_qtdir}/plugins/kf6/kwindowsystem/KF6WindowSystemKWaylandPlugin.so
+
+%files backend-x11
+%{_qtdir}/plugins/kf6/kwindowsystem/KF6WindowSystemX11Plugin.so
 
 %files -n %{devname}
 %{_includedir}/KF6/KWindowSystem
