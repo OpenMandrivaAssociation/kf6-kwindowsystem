@@ -24,6 +24,7 @@ BuildRequires: cmake(Qt6QuickTest)
 BuildRequires: cmake(Qt6DBusTools)
 BuildRequires: cmake(Qt6WaylandClient)
 BuildRequires: cmake(WaylandProtocols)
+BuildRequires: pkgconfig(wayland-protocols)
 BuildRequires: doxygen
 BuildRequires: cmake(Qt6ToolsTools)
 BuildRequires: cmake(Qt6)
