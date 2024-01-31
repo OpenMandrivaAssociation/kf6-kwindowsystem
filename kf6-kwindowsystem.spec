@@ -5,7 +5,7 @@
 #define git 20231103
 
 Name: kf6-kwindowsystem
-Version: 5.248.0
+Version: 5.249.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kwindowsystem/-/archive/master/kwindowsystem-master.tar.bz2#/kwindowsystem-%{git}.tar.bz2
@@ -114,6 +114,7 @@ X11 backend for %{name}
 %{_includedir}/KF6/KWindowSystem
 %{_libdir}/cmake/KF6WindowSystem
 %{_qtdir}/doc/KF6WindowSystem.*
+%{_libdir}/pkgconfig/KF6WindowSystem.pc
 
 %files -n %{libname}
 %{_libdir}/libKF6WindowSystem.so*
