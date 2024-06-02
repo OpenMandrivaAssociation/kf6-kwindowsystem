@@ -7,7 +7,7 @@
 
 Name: kf6-kwindowsystem
 Version: 6.2.0
-Release: %{?git:0.%{git}.}2
+Release: %{?git:0.%{git}.}3
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kwindowsystem/-/archive/master/kwindowsystem-master.tar.bz2#/kwindowsystem-%{git}.tar.bz2
 %else
@@ -44,7 +44,7 @@ BuildRequires: pkgconfig(xfixes)
 Requires: %{libname} = %{EVRD}
 Requires: %{name}-backend = %{EVRD}
 Requires: (%{name}-backend-wayland = %{EVRD} if plasma6-kwin-wayland)
-Requires: (%{name}-backend-x11 = %{EVRD} if plasma6-kwin-x11)
+Requires: (%{name}-backend-x11 = %{EVRD} if x11-server-xorg)
 
 %description
 Access to the windowing system
